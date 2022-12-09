@@ -1,7 +1,7 @@
 import time
-
 import pygame.sprite
 from projectile import Projectile
+
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, game):
@@ -20,6 +20,12 @@ class Player(pygame.sprite.Sprite):
     screenGameOver = pygame.display.set_mode((550, 650))
     gameover = pygame.image.load('Junianji Assets/Game Over.png')
 
+    def death(self):
+        self.rect.y = 600
+        self.rect.x = 225
+        print("Game Over")
+        time.sleep(2)
+
 
     def move_right(self):
         #si le ptit bonhomme est pas en collision avec une tuture
@@ -27,64 +33,40 @@ class Player(pygame.sprite.Sprite):
             if not self.game.checkCollision(self, self.game.allVoitures):
                 self.rect.x += self.velocity
             else:
-                self.rect.y = 600
-                self.rect.x = 225
-                print("Game Over")
-                time.sleep(2)
+                self.death()
         elif self.rect.y <= 265:
             print("Plouf")
-            self.rect.y = 600
-            self.rect.x = 225
-            print("Game Over")
-            time.sleep(2)
+            self.death()
 
     def move_left(self):
         if self.rect.y >= 265:
             if not self.game.checkCollision(self, self.game.allVoitures):
                 self.rect.x -= self.velocity
             else:
-                self.rect.y = 600
-                self.rect.x = 225
-                print("Game Over")
-                time.sleep(2)
+                self.death()
         elif self.rect.y <= 265:
             print("Plouf")
-            self.rect.y = 600
-            self.rect.x = 225
-            print("Game Over")
-            time.sleep(2)
+            self.death()
 
     def move_up(self):
         if self.rect.y >= 265:
             if not self.game.checkCollision(self, self.game.allVoitures):
                 self.rect.y -= self.velocity
             else:
-                self.rect.y = 600
-                self.rect.x = 225
-                print("Game Over")
-                time.sleep(2)
+                self.death()
         elif self.rect.y <= 265:
             print("Plouf")
-            self.rect.y = 600
-            self.rect.x = 225
-            print("Game Over")
-            time.sleep(2)
+            self.death()
 
     def move_down(self):
         if self.rect.y >= 265:
             if not self.game.checkCollision(self, self.game.allVoitures):
                 self.rect.y += self.velocity
             else:
-                self.rect.y = 600
-                self.rect.x = 225
-                print("Game Over")
-                time.sleep(2)
+                self. death()
         elif self.rect.y <= 265:
             print("Plouf")
-            self.rect.y = 600
-            self.rect.x = 225
-            print("Game Over")
-            time.sleep(2)
+            self.death()
 
     def launchProjectile(self):
         #creer une nvle instance de la classe projectile

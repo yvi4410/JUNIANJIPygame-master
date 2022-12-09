@@ -50,10 +50,10 @@ while running:
     elif game.pressed.get(pygame.K_LEFT) and game.player.rect.x >= -10:
         game.player.move_left()
         game.player.image = pygame.image.load('Junianji Assets/Froggers Final Left.png')
-    elif game.pressed.get(pygame.K_UP):
+    elif game.pressed.get(pygame.K_UP) and game.player.rect.y >= 0:
         game.player.move_up()
         game.player.image = pygame.image.load('Junianji Assets/Froggers Final Up.png')
-    elif game.pressed.get(pygame.K_DOWN):
+    elif game.pressed.get(pygame.K_DOWN) and game.player.rect.y <= 599:
         game.player.move_down()
         game.player.image = pygame.image.load('Junianji Assets/Froggers Final Down.png')
 
