@@ -1,6 +1,6 @@
 import pygame.sprite
 from contract.ivehicles import IVehicles
-class Voiture2(pygame.sprite.Sprite):
+class Voiture5(pygame.sprite.Sprite):
 
     def move(self):
         pass
@@ -8,18 +8,15 @@ class Voiture2(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
-        self.velocity = 2.5
-        self.image = pygame.image.load('Junianji Assets/Voiture 6.png')
+        self.velocity = 1.5
+        self.image = pygame.image.load('Junianji Assets/Voiture 5.png')
         self.image = pygame.transform.scale(self.image, (90, 55))
         self.rect = self.image.get_rect()
         self.rect.x = -200
-        self.rect.y = 500
+        self.rect.y = 350
 
     def move_right(self):
         #collision avec un groupe de joueur
         if self.rect.x > 700:
             self.rect.x = -200
         self.rect.x += self.velocity
-
-
-
