@@ -7,6 +7,10 @@ from voiture3 import Voiture3
 from voiture4 import Voiture4
 from voiture5 import Voiture5
 from crocodile import Crocodile
+from kayak import Kayak
+from kayak2 import Kayak2
+from crocodile2 import Crocodile2
+from barque import Barque
 
 
 
@@ -25,6 +29,10 @@ class Game:
         self.spawnVoiture4()
         self.spawnVoiture5()
         self.spawnCrocodile()
+        self.spawnKayak()
+        self.spawnKayak2()
+        self.spawnCrocodile2()
+        self.spawnBarque()
 
 
     def spawnVoiture(self):
@@ -51,6 +59,21 @@ class Game:
         crocodile = Crocodile(Game)
         self.allVoitures.add(crocodile)
 
+    def spawnKayak(self):
+        kayak = Kayak(Game)
+        self.allVoitures.add(kayak)
+
+    def spawnKayak2(self):
+        kayak2 = Kayak2(Game)
+        self.allVoitures.add(kayak2)
+
+    def spawnCrocodile2(self):
+        crocodile2 = Crocodile2(Game)
+        self.allVoitures.add(crocodile2)
+
+    def spawnBarque(self):
+        barque = Barque(Game)
+        self.allVoitures.add(barque)
 
     def checkCollision(self, sprite, group):
         return pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)

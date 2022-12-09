@@ -1,6 +1,6 @@
 import pygame.sprite
 from contract.ivehicles import IVehicles
-class Crocodile(pygame.sprite.Sprite):
+class Barque(pygame.sprite.Sprite):
 
     def move(self):
         pass
@@ -9,11 +9,11 @@ class Crocodile(pygame.sprite.Sprite):
         super().__init__()
         self.game = game
         self.velocity = 1.5
-        self.image = pygame.image.load('Junianji Assets/crocodile.png')
-        self.image = pygame.transform.scale(self.image, (120, 70))
+        self.image = pygame.image.load('Junianji Assets/barque.png')
+        self.image = pygame.transform.scale(self.image, (100, 65))
         self.rect = self.image.get_rect()
         self.rect.x = -200
-        self.rect.y = 230
+        self.rect.y = 40
 
     def move_right(self):
         #collision avec un groupe de joueur
