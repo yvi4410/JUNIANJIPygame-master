@@ -8,7 +8,7 @@ class Barque(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
-        self.velocity = 1.5
+        self.velocity = 2
         self.image = pygame.image.load('Junianji Assets/barque.png')
         self.image = pygame.transform.scale(self.image, (100, 65))
         self.rect = self.image.get_rect()

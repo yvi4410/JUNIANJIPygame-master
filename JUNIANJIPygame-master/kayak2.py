@@ -8,7 +8,7 @@ class Kayak2(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
-        self.velocity = 1.5
+        self.velocity = 1
         self.image = pygame.image.load('Junianji Assets/kayak.png')
         self.image = pygame.transform.scale(self.image, (150, 90))
         self.rect = self.image.get_rect()

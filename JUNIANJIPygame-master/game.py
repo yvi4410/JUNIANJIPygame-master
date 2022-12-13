@@ -21,6 +21,10 @@ class Game:
         self.is_playing = False
         # generer notre joueur
         self.player = Player(self)
+        self.Kayak = Kayak(self)
+        self.Kayak2 = Kayak2(self)
+        self.Crocodile = Crocodile(self)
+        self.Crocodile2 = Crocodile2(self)
         self.allVoitures = pygame.sprite.Group()
         self.pressed = {}
         self.spawnVoiture()

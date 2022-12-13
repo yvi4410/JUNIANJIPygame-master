@@ -8,7 +8,7 @@ class Crocodile2(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
-        self.velocity = 1.5
+        self.velocity = 2.25
         self.image = pygame.image.load('Junianji Assets/crocodile.png')
         self.image = pygame.transform.scale(self.image, (120, 70))
         self.rect = self.image.get_rect()

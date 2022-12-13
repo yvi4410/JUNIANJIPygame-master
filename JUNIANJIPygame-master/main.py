@@ -1,8 +1,14 @@
+import time
+
 import pygame
+
+import gameover
 from player import Player
 from game import Game
 from voiture import Voiture
 from voiture2 import Voiture2
+from kayak import Kayak
+from kayak2 import Kayak2
 pygame.init()
 
 #creer une 1ere classe: notre joueur
@@ -16,6 +22,11 @@ screen = pygame.display.set_mode((550, 650))
 background = pygame.image.load('Junianji Assets/Froggers Background.png')
 background = pygame.transform.scale(background, (550, 650))
 
+#gamover
+class Gameover:
+    gameover = pygame.image.load('Junianji Assets/Game Over.png')
+    gameover = pygame.transform.scale(gameover, (400, 180))
+
 #Charger notre jeu
 game = Game()
 
@@ -28,6 +39,7 @@ while running:
 
     #appliquer le Background
     screen.blit(background, (0,0))
+    #screen.blit(Gameover.gameover, (74, 230))
 
     #appliquer l image du joueur
     screen.blit(game.player.image, game.player.rect)
@@ -56,6 +68,22 @@ while running:
     elif game.pressed.get(pygame.K_DOWN) and game.player.rect.y <= 599:
         game.player.move_down()
         game.player.image = pygame.image.load('Junianji Assets/Froggers Final Down.png')
+
+
+    #LE JOUEUR AVANCE AVEC LES CANOE
+    if game.player.rect.x > game.Kayak.rect.x and game.player.rect.x < game.Kayak.rect.x + 150 and game.player.rect.y < game.Kayak.rect.y + 90 and game.player.rect.y > game.Kayak.rect.y:
+        game.player.rect.x = game.player.rect.x + 2
+
+    if game.player.rect.x > game.Kayak2.rect.x and game.player.rect.x < game.Kayak2.rect.x + 150 and game.player.rect.y < game.Kayak2.rect.y + 90 and game.player.rect.y > game.Kayak2.rect.y:
+        game.player.rect.x = game.player.rect.x + 2
+
+    if game.player.rect.x > game.Crocodile.rect.x and game.player.rect.x < game.Crocodile.rect.x + 120 and game.player.rect.y < game.Crocodile.rect.y + 70 and game.player.rect.y > game.Crocodile.rect.y:
+        game.player.rect.x = game.player.rect.x + 2
+
+    if game.player.rect.x > game.Crocodile2.rect.x and game.player.rect.x < game.Crocodile2.rect.x + 120 and game.player.rect.y < game.Crocodile2.rect.y + 70 and game.player.rect.y > game.Crocodile2.rect.y:
+        game.player.rect.x = game.player.rect.x + 2
+
+    #time.sleep(0.005)
 
         #mettre l ecran a jour
     pygame.display.flip()

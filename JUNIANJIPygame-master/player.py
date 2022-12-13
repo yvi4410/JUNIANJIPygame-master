@@ -1,6 +1,12 @@
 import time
 import pygame.sprite
+import pygame
+
+import gameover
+from gameover import Gameover
 from projectile import Projectile
+
+pygame.init()
 
 
 class Player(pygame.sprite.Sprite):
@@ -11,20 +17,22 @@ class Player(pygame.sprite.Sprite):
         self.health = 100
         self.max_health = 100
         self.attack = 500
-        self.velocity = 5
+        self.velocity = 2
         self.allProjectile = pygame.sprite.Group()
         self.image = pygame.image.load('Junianji Assets/Froggers Final Up.png')
         self.rect = self.image.get_rect()
         self.rect.x = 225
         self.rect.y = 600
-    screenGameOver = pygame.display.set_mode((550, 650))
-    gameover = pygame.image.load('Junianji Assets/Game Over.png')
+
 
     def death(self):
         self.rect.y = 600
         self.rect.x = 225
+        gameover.Gameover()
         print("Game Over")
         time.sleep(2)
+
+
 
 
     def move_right(self):
@@ -35,7 +43,6 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.death()
         elif self.rect.y <= 265:
-            print("Plouf")
             self.death()
 
     def move_left(self):
@@ -45,7 +52,6 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.death()
         elif self.rect.y <= 265:
-            print("Plouf")
             self.death()
 
     def move_up(self):
@@ -55,7 +61,6 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.death()
         elif self.rect.y <= 265:
-            print("Plouf")
             self.death()
 
     def move_down(self):
@@ -65,9 +70,5 @@ class Player(pygame.sprite.Sprite):
             else:
                 self. death()
         elif self.rect.y <= 265:
-            print("Plouf")
             self.death()
 
-    def launchProjectile(self):
-        #creer une nvle instance de la classe projectile
-        self.allProjectile.add(Projectile(self))
